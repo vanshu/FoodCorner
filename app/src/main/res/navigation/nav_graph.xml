@@ -3,26 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/recipesFragment">
+
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.usfuchsia.foodcorner.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+        android:id="@+id/recipesFragment"
+        android:name="com.usfuchsia.foodcorner.ui.RecipesFragment"
+        android:label="RecipesFragment" />
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.usfuchsia.foodcorner.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        android:id="@+id/foodJokeFragment"
+        android:name="com.usfuchsia.foodcorner.ui.FoodJokeFragment"
+        android:label="FoodJokeFragment" />
+    <fragment
+        android:id="@+id/favoriteRecipesFragment"
+        android:name="com.usfuchsia.foodcorner.ui.FavoriteRecipesFragment"
+        android:label="FavoriteRecipesFragment" />
 </navigation>
