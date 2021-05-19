@@ -1,4 +1,4 @@
-package com.usfuchsia.foodcorner
+package com.usfuchsia.foodcorner.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.usfuchsia.foodcorner.R
 import com.usfuchsia.foodcorner.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
