@@ -8,14 +8,14 @@
 
     <fragment
         android:id="@+id/recipesFragment"
-        android:name="com.usfuchsia.foodcorner.ui.RecipesFragment"
+        android:name="com.usfuchsia.foodcorner.ui.fragment.RecipesFragment"
         android:label="RecipesFragment" />
     <fragment
         android:id="@+id/foodJokeFragment"
-        android:name="com.usfuchsia.foodcorner.ui.FoodJokeFragment"
+        android:name="com.usfuchsia.foodcorner.ui.fragment.FoodJokeFragment"
         android:label="FoodJokeFragment" />
     <fragment
         android:id="@+id/favoriteRecipesFragment"
-        android:name="com.usfuchsia.foodcorner.ui.FavoriteRecipesFragment"
+        android:name="com.usfuchsia.foodcorner.ui.fragment.FavoriteRecipesFragment"
         android:label="FavoriteRecipesFragment" />
 </navigation>
