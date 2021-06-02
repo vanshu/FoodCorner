@@ -1,7 +1,7 @@
 package com.usfuchsia.foodcorner.di
 
-import com.usfuchsia.foodcorner.Constants.Companion.BASE_URL
-import com.usfuchsia.foodcorner.data.FoodRecipeApi
+import com.usfuchsia.foodcorner.util.Constants.Companion.BASE_URL
+import com.usfuchsia.foodcorner.data.network.FoodRecipeApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,6 +1,6 @@
 package com.usfuchsia.foodcorner.data
 
-import com.usfuchsia.foodcorner.data.FoodRecipeApi
+import com.usfuchsia.foodcorner.data.network.FoodRecipeApi
 import com.usfuchsia.foodcorner.model.FoodRecipes
 import retrofit2.Response
 import javax.inject.Inject

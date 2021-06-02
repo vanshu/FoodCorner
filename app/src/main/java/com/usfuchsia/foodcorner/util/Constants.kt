@@ -1,4 +1,4 @@
-package com.usfuchsia.foodcorner
+package com.usfuchsia.foodcorner.util
 
 class Constants {
     companion object{

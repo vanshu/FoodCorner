@@ -1,4 +1,4 @@
-package com.usfuchsia.foodcorner.data
+package com.usfuchsia.foodcorner.data.network
 
 import com.usfuchsia.foodcorner.model.FoodRecipes
 import retrofit2.Response
