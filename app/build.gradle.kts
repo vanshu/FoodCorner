@@ -17,17 +17,25 @@ android {
         targetSdk = 30
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
+            versionNameSuffix = "-debug"
+        }
+        maybeCreate("staging")
+        getByName("staging") {
+            isMinifyEnabled = false
+            versionNameSuffix = "-staging"
         }
     }
 
@@ -38,6 +46,7 @@ android {
             keyAlias = System.getenv("ANDROID_KEYSTORE_ALIAS")
             keyPassword = System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
         }
+
 
         getByName("debug") {
             storeFile = file("../keystore/debug.keystore")
@@ -59,6 +68,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    compileSdkVersion = "android-S"
 
 }
 
