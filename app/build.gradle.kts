@@ -7,8 +7,6 @@ plugins {
 }
 
 
-
-
 android {
     compileSdk = 30
     buildToolsVersion = "30.0.3"
@@ -19,24 +17,48 @@ android {
         targetSdk = 30
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
+        getByName("release") {
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
+            versionNameSuffix = "-debug"
+        }
+        maybeCreate("staging")
+        getByName("staging") {
+            isMinifyEnabled = false
+            versionNameSuffix = "-staging"
+        }
+    }
+
+    signingConfigs {
+        create("release") {
+            storeFile = rootProject.file("release.keystore")
+            storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("ANDROID_KEYSTORE_ALIAS")
+            keyPassword = System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+        }
+
+
+        getByName("debug") {
+            storeFile = file("../keystore/debug.keystore")
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+            storePassword = "android"
         }
     }
 
     buildFeatures {
         dataBinding = true
         viewBinding = true
-
     }
 
     compileOptions {
@@ -46,9 +68,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        viewBinding = true
-    }
+    compileSdkVersion = "android-S"
+
 }
 
 dependencies {
@@ -68,7 +89,7 @@ dependencies {
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.1.0")
 
     // Material Components
-    implementation("com.google.android.material:material:1.4.0-beta01")
+    implementation("com.google.android.material:material:1.4.0-rc01")
 
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
@@ -88,15 +109,15 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0-beta01")
 
     // Recyclerview
-    implementation("androidx.recyclerview:recyclerview:1.2.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.35")
-    kapt("com.google.dagger:hilt-android-compiler:2.35")
+    implementation("com.google.dagger:hilt-android:2.36")
+    kapt("com.google.dagger:hilt-android-compiler:2.36")
 
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 
