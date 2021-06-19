@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.usfuchsia.foodcorner.R
 import com.usfuchsia.foodcorner.databinding.FragmentFavoriteRecipesBinding
+import com.usfuchsia.foodcorner.util.getVersionName
 
 class FavoriteRecipesFragment : Fragment() {
 
@@ -27,18 +28,10 @@ class FavoriteRecipesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.tvVersionName.text = activity?.let { getVersionName(it.applicationContext) }
+        binding.tvVersionName.text = activity?.let { getVersionName(it) }
 
     }
 
-    private fun getVersionName(context: Context): String {
-        var versionName: String
-        try {
-            versionName = context.packageManager.getPackageInfo(context.packageName, 0).versionName
-        } catch (e: PackageManager.NameNotFoundException) {
-            return ""
-        }
-        return versionName
-    }
+
 
 }
